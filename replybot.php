@@ -18,7 +18,7 @@ $events = json_decode($content, true);
 if (!is_null($events['events'])) {
 // Loop through each event
 foreach ($events['events'] as $event) {
-if ($event['source']['userId'] == 'U'){
+if ($event['source']['userId'] == 'Uc05fb00900a98b2bc9e988e66cff987c'){
 // Reply only when message sent is in 'text' format
 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 // Get text sent
