@@ -14,11 +14,11 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
-var_dump($events);
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 // Loop through each event
 foreach ($events['events'] as $event) {
+    var_dump($event);
 // Reply only when message sent is in 'text' format
 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 // Get text sent
@@ -53,4 +53,3 @@ echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 }
 }
 }
-echo "OK";
