@@ -32,7 +32,7 @@ $messages = [
 // Make a POST Request to Messaging API to reply to sender
 $url = 'https://api.line.me/v2/bot/message/reply';
 $data = [
-'replyToken' => $replyToken,
+// 'replyToken' => $replyToken,
 'messages' => [$messages],
 ];
 $post = json_encode($data);
@@ -44,7 +44,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 $result = curl_exec($ch);
-// curl_close($ch);
+curl_close($ch);
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($text);
 $response = $bot->pushMessage($pushID, $textMessageBuilder);
 // echo $result . "\r\n";
