@@ -27,7 +27,7 @@ $replyToken = $event['replyToken'];
 // Build message to reply back
 $messages = [
 'type' => 'text',
-'text' => $text
+'text' => $event['text'],
 ];
 // Make a POST Request to Messaging API to reply to sender
 $url = 'https://api.line.me/v2/bot/message/reply';
@@ -48,8 +48,7 @@ curl_close($ch);
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($text);
 $response = $bot->pushMessage($pushID, $textMessageBuilder);
 // echo $result . "\r\n";
-// echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
-echo $event;
+echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 }
 }
 }
