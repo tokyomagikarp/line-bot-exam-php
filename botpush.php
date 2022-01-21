@@ -17,7 +17,9 @@ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello');
+foreach ($events['events'] as $event) {
 $texttest = $event['source']['userId'];
 $response = $bot->pushMessage($pushID, $texttest);
 
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+}
