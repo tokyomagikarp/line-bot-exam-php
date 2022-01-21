@@ -18,6 +18,7 @@ $events = json_decode($content, true);
 if (!is_null($events['events'])) {
 // Loop through each event
 foreach ($events['events'] as $event) {
+if ($event['source']['userId'] == 'U'){
 // Reply only when message sent is in 'text' format
 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 // Get text sent
@@ -49,6 +50,7 @@ curl_close($ch);
 // $response = $bot->pushMessage($pushID, $textMessageBuilder);
 echo $result . "\r\n";
 // echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+}
 }
 }
 }
