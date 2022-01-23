@@ -46,7 +46,7 @@ curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 $result = curl_exec($ch);
 curl_close($ch);
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($text);
-$response = $bot->replyMessage($pushID, $textMessageBuilder);
+$response = $bot->replyMessage($replyToken, $textMessageBuilder);
 // echo $result . "\r\n";
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 }
