@@ -32,7 +32,7 @@ $replyToken = $event['replyToken'];
 // Build message to reply back
 $messages = [
 'type' => 'text',
-'text' => $usertext . "<br> dsadasdas"
+'text' => $usertext . "<html><br/> dsadasdas</html>"
 ];
 // Make a POST Request to Messaging API to reply to sender
 $url = 'https://api.line.me/v2/bot/message/reply';
