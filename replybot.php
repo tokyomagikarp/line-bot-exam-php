@@ -22,6 +22,9 @@ foreach ($events['events'] as $event) {
 // if ($event['source']['userId'] == 'Uc05fb00900a98b2bc9e988e66cff987c'){
 // Reply only when message sent is in 'text' format
 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+// Reply เฉพาะคีย์เวิร์ดนี้    ยังไม่เสร็จ
+$usertext = $event['message']['text'];
+if ($usertext == '4w'){
 // Get text sent
 $text = $event['source']['userId'];
 // Get replyToken
@@ -29,7 +32,7 @@ $replyToken = $event['replyToken'];
 // Build message to reply back
 $messages = [
 'type' => 'text',
-'text' => $event['message']['text']
+'text' => 'ถูกต้องแล้วคร้าบบบ'
 ];
 // Make a POST Request to Messaging API to reply to sender
 $url = 'https://api.line.me/v2/bot/message/reply';
@@ -51,6 +54,7 @@ curl_close($ch);
 // $response = $bot->pushMessage($pushID, $textMessageBuilder);
 echo $result . "\r\n";
 // echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+}
 }
 }
 }
