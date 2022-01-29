@@ -24,7 +24,7 @@ foreach ($events['events'] as $event) {
 if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 // Reply เฉพาะคีย์เวิร์ดนี้    ยังไม่เสร็จ
 $usertext = $event['message']['text'];
-if ($usertext == '4w'){
+if (stripos($usertext, '4w') != ""){
 // Get text sent
 $text = $event['source']['userId'];
 // Get replyToken
